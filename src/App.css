@@ -28,6 +28,57 @@
   color: #61dafb;
 }
 
+
+.yellow-title {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+  left: 0;
+  margin-left: 20px;
+  color: white;
+  z-index: 999;
+  -webkit-text-stroke: 2px black;
+}
+
+.yellow-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: rgb(229 231 235);
+  transform: skew(-30deg);
+  z-index: -1;
+}
+
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.leaflet-routing-container {
+  display: none !important;
+}
+
+.pie-chart .MuiChartsLegend-series tspan{
+  fill: white;
+}
+
+.MuiPieArc-root {
+  opacity: 0.85 !important;
+}
+
+.MuiChartsLegend-mark {
+  stroke: white; /* Warna border */
+  stroke-width: 1px; /* Ketebalan border */
+  stroke-dasharray: 0; /* Garis putus-putus */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
