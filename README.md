@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Dashboard Visualisasi Data Taksi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplikasi berbasis **ReactJS** ini menampilkan data perjalanan taksi NYC dalam bentuk dashboard interaktif. Dashboard ini memungkinkan pengguna untuk memfilter data perjalanan, melihat jalur rute di peta, dan menganalisis data menggunakan grafik serta statistik terperinci.
 
-## Available Scripts
+![Home Screen](/assets/images/homescreen.png)
 
-In the project directory, you can run:
+## Fitur Utama
 
-### `npm start`
+- **Peta Interaktif**: Menampilkan titik jemput dan antar dengan garis rute.
+- **Panel Filter**: Filter data berdasarkan tanggal, tipe pembayaran, tarif, dan jarak perjalanan.
+- **Statistik Dashboard**: Menampilkan grafik dan statistik terkait data perjalanan taksi.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Cara Penggunaan
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. Clone repository
 
-### `npm test`
+```bash
+git clone https://github.com/muhfarhan13/yellow-taxi.git
+cd yello-taxi
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Install dependensi
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Jalankan aplikasi
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Akses aplikasi
+Akses aplikasi di browser pada http://localhost:3000.
 
-### `npm run eject`
+## Teknologi yang Digunakan
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- ReactJS: Untuk membangun antarmuka pengguna.
+- Leaflet: Visualisasi peta dan jalur rute.
+- Material UI: Component React dan Membuat grafik (scatter plot dan donat chart).
+- CSS/SCSS: Untuk styling.
+- Custom Hooks:
+  - useTaxiData: Mengelola data perjalanan taksi.
+  - useDataFilters: Memfilter data perjalanan.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Struktur Folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+src/
+├── components/
+│   ├── Filters/
+│   │   ├── FilterPanel.js
+│   ├── MapView/
+│   │   ├── MapView.js
+│   ├── DashboardStats.js
+├── hooks/
+│   ├── useDataFilters.js
+│   ├── useTaxiData.js
+├── redux/
+│   ├── actions/
+│   │   ├── taxiAction.js
+│   ├── reducer/
+│   │   ├── taxiReducer.js
+│   ├── store/
+│   │   ├── taxiStore.js
+├── screens/
+│   ├── HomeScreens.js
+├── utils/
+│   ├── dataProcessing.js
+```
