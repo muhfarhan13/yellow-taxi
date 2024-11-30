@@ -17,12 +17,28 @@ const FilterPanel = ({ filters, setFilters }) => {
 
   const handleFilter = (e) => {
     const { name, value } = e.target;
-    setFilters((prev) => ({ ...prev, [name]: value }));
+
+    if (name == "fareAmount" || name == "tripDistance") {
+      const [newMin, newMax] = value; 
+      if (newMin > newMax) {
+        setFilters((prev) => ({
+          ...prev,
+          [name]: [newMax, newMin],
+        }));
+      } else {
+        setFilters((prev) => ({
+          ...prev,
+          [name]: value,
+        }));
+      }
+    } else {
+      setFilters((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   return (
     <div
-      className="absolute start-0 bg-emerald-700/30 bottom-0 text-white p-5"
+      className="absolute lg:bottom-0 bg-emerald-700/30 text-white p-5"
       style={{ zIndex: 500 }}
     >
       <h2 className="text-white font-bold mb-4">
@@ -56,8 +72,8 @@ const FilterPanel = ({ filters, setFilters }) => {
           sx={selectStyles}
         >
           <MenuItem value="">All</MenuItem>
-          <MenuItem value="Credit">Credit</MenuItem>
-          <MenuItem value="Cash">Cash</MenuItem>
+          <MenuItem value="CRD">CRD</MenuItem>
+          <MenuItem value="CSH">CSH</MenuItem>
         </Select>
       </div>
 
@@ -68,7 +84,7 @@ const FilterPanel = ({ filters, setFilters }) => {
         value={filters.fareAmount}
         onChange={handleFilter}
         min={0}
-        max={100}
+        max={40}
       />
 
       {/* Trip Distance Slider */}

@@ -8,7 +8,7 @@ export const processPaymentTypes = (taxiData) => {
     id: index,
     value,
     label: key,
-    color: index === 0 ? "#FF6F61" : "#007B83",
+    color: key === 'CRD' ? "#FF6F61" : "#007B83",
   }));
 };
 

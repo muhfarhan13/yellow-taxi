@@ -31,17 +31,38 @@ const MapView = ({ taxiData }) => {
         routeWhileDragging: true,
         show: false,
         createMarker: (i, waypoint) => {
-          // Berikan marker khusus pada titik awal dan akhir
-          const customIcon = L.icon({
-            iconUrl: "/assets/images/mark.png",
-            iconSize: [32, 32],
-            iconAnchor: [16, 32],
-            popupAnchor: [0, -32],
-          });
+            const customIcon = L.icon({
+                iconUrl:
+                i === 0 ? "/assets/images/mark.png" : "/assets/images/finish-flag.png",
+                iconSize: [29, 29],
+                iconAnchor: [16, 32],
+                popupAnchor: [0, -32],
+            });
 
-          return L.marker(waypoint.latLng, { icon: customIcon }).bindPopup(
-            i === 0 ? "Start Point" : "End Point"
-          );
+            const markerInfo = `
+                <div>
+                    <h4>${i === 0 ? "Start Point" : "End Point"}</h4>
+                    <p><strong>Vendor:</strong> ${item.vendor_id}</p>
+                    <p><strong>Payment Type:</strong> ${item.payment_type}</p>
+                    <p><strong>Trip Distance:</strong> ${item.trip_distance}</p>
+                    <p><strong>Total Amount:</strong> ${item.total_amount}</p>
+                    <p><strong>Pickup Longitude / Latitude:</strong> ${
+                    item.pickup_longitude
+                    } / ${item.pickup_latitude}</p>
+                    <p><strong>Dropoff Longitude / Latitude:</strong> ${
+                    item.dropoff_longitude
+                    } / ${item.dropoff_latitude}</p>
+                </div>
+            `;
+
+            return L.marker(waypoint.latLng, { icon: customIcon })
+                .bindPopup(markerInfo)
+                .on("mouseover", function () {
+                  this.openPopup();
+                })
+                .on("mouseout", function () {
+                  this.closePopup();
+                });
         },
         lineOptions: {
           styles: [{ color: "yellow", weight: 4, opacity: 0.8 }],

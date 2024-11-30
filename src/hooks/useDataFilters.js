@@ -5,7 +5,7 @@ export const useDataFilters = (taxiData) => {
   const [filters, setFilters] = useState({
     pickupDate: "",
     dropoffDate: "",
-    fareAmount: [0, 100],
+    fareAmount: [0, 40],
     tripDistance: [0, 20],
     paymentType: "",
   });
