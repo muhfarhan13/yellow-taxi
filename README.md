@@ -2,7 +2,7 @@
 
 Aplikasi berbasis **ReactJS** ini menampilkan data perjalanan taksi NYC dalam bentuk dashboard interaktif. Dashboard ini memungkinkan pengguna untuk memfilter data perjalanan, melihat jalur rute di peta, dan menganalisis data menggunakan grafik serta statistik terperinci.
 
-![Home Screen](/assets/images/homescreen.png)
+![Home Screen](public/assets/images/homescreen.png)
 
 ## Fitur Utama
 
