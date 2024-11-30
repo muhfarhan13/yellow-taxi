@@ -12,7 +12,6 @@ const MapView = ({ taxiData }) => {
 
     const map = mapRef.current;
     let routeControl;
-    console.log(routeControl)
 
     if (routeControl) {
       routeControl.remove();

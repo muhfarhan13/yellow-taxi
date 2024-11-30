@@ -3,7 +3,7 @@ import { format } from "date-fns";
 
 export const useDataFilters = (taxiData) => {
   const [filters, setFilters] = useState({
-    pickupDate: "2014-03-11",
+    pickupDate: "",
     dropoffDate: "",
     fareAmount: [0, 100],
     tripDistance: [0, 20],
